@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Desafio Relâmpago</title>
+
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+</head>
+<body>
+  <main class="scene">
+
+    <input type="checkbox" id="message-toggle">
+    <input type="checkbox" id="easter-toggle">
+
+    <section class="top">
+      <h1 class="title">
+        <div class="word">
+          <span class="l red">S</span>
+          <span class="l blue">U</span>
+          <span class="l yellow">P</span>
+          <span class="l green">E</span>
+          <span class="l red">R</span>
+        </div>
+
+        <div class="word">
+          <span class="l blue">D</span>
+          <span class="l yellow">E</span>
+          <span class="l green">S</span>
+          <span class="l red">A</span>
+          <span class="l blue">F</span>
+          <span class="l yellow">I</span>
+          <span class="l green">O</span>
+        </div>
+
+        <div class="word">
+          <span class="l red">R</span>
+          <span class="l blue">E</span>
+          <span class="l yellow">L</span>
+          <span class="l green">Â</span>
+          <span class="l red">M</span>
+          <span class="l blue">P</span>
+          <span class="l yellow">A</span>
+          <span class="l green">G</span>
+          <span class="l red">O</span>
+        </div>
+      </h1>
+
+      <label for="message-toggle" class="message-block"></label>
+    </section>
+
+    <nav class="menu">
+      <a href="Projetos/MegaManX/index.html" target="_blank">PROJETO 01</a>
+      <a href="Projetos/SMW/index.html" target="_blank">PROJETO 02</a>
+      <a href="Projetos/MK II/index.html" target="_blank">PROJETO 03</a>
+    </nav>
+
+    <div class="yoshi-corner">
+      <img src="Imagens/mario_yoshi.gif" alt="Mario e Yoshi" class="yoshi-gif">
+      
+      <div class="eggs-container">
+        <a href="https://github.com/vieiralg" target="_blank" class="egg-link" data-tooltip="GitHub">
+          <img src="Imagens/vermelho.png" alt="Ovo Vermelho">
+        </a>
+        
+        <a href="https://www.figma.com/design/awVF8MJKX1rOrNsr8UOwYl/Desafio-Rel%C3%A2mpago" target="_blank" class="egg-link" data-tooltip="Figma">
+          <img src="Imagens/amarelo.png" alt="Ovo Amarelo">
+        </a>
+
+        <a href="https://www.linkedin.com/in/luisg-vieira" target="_blank" class="egg-link" data-tooltip="LinkedIn">
+          <img src="Imagens/azul.png" alt="Ovo Azul">
+        </a>
+      </div>
+    </div>
+
+    <div class="overlay">
+      <div class="message-box">
+        <label for="message-toggle" class="close">✕</label>
+        <p>Há algo escondido por aqui...</p>
+        <img src="Imagens/will.png" alt="Imagem Will" class="message-image">
+      </div>
+    </div>
+
+    <label for="easter-toggle" class="secret-zone"></label>
+
+    <div class="easter-overlay">
+      <div class="easter-box">
+        <label for="easter-toggle" class="close">✕</label>
+        <img src="Imagens/agua.png" alt="Easter Egg">
+        <p>Bebam água!</p>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,210 @@
+:root {
+  --mmx-blue-dark: #000050;
+  --mmx-blue-neon: #00FFFF;
+  --mmx-text-white: #ffffff;
+  --mmx-alert-red: #ff3333;
+  --mmx-ok-green: #33ff33;
+
+  /* --- CALIBRAÇÃO DO CHÃO --- */
+  /* Ajuste a altura do boneco aqui se trocar o background */
+  --floor-height-desktop: 33vh; 
+  --floor-height-mobile: 33vh;  
+}
+
+/* --- RESET & TRAVA DE SCROLL (Fim do efeito elástico) --- */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Corta excessos */
+    overscroll-behavior: none; /* Bloqueia o "bounce" do navegador */
+    background-color: var(--mmx-blue-dark);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* O Body fixo impede que a página seja arrastada no mobile */
+body {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* --- BACKGROUND --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    /* Garante que o chão da imagem esteja sempre colado no fundo da tela */
+    background-size: cover;
+    background-position: center bottom;
+    
+    pointer-events: none;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 2px,
+        rgba(0, 0, 0, 0.3) 3px, rgba(0, 0, 0, 0.3) 4px
+    );
+    pointer-events: none;
+    z-index: 99;
+}
+
+.stage-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* ==========================================================================
+   LÓGICA DO JOGADOR (Grupo Boneco + Tiro)
+   Isso resolve o problema do tiro desalinhando ao redimensionar a janela.
+   ========================================================================== */
+
+.player-group {
+    position: absolute;
+    z-index: 10;
+    
+    /* Define a altura do Mega Man na tela */
+    height: 25vh; 
+    max-height: 450px;
+    
+    /* A largura se adapta à imagem (proporção correta) */
+    width: auto; 
+    display: inline-block;
+
+    /* Posição do grupo na tela */
+    left: 5%; 
+    bottom: var(--floor-height-desktop);
+}
+
+.x-sprite {
+    height: 100%; /* Ocupa 100% da altura do grupo */
+    width: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.buster-shot {
+    position: absolute;
+    z-index: 9;
+    background: linear-gradient(to right, var(--mmx-blue-neon), white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--mmx-blue-neon);
+    opacity: 0;
+    animation: fireBuster 2s infinite ease-out;
+
+    /* ALINHAMENTO DO TIRO:
+       Agora é porcentagem relativa ao TAMANHO DO BONECO.
+       Não importa se a janela é enorme ou minúscula, 
+       o tiro sempre sairá desta posição exata do sprite. */
+    top: 43%;  /* Altura do canhão na imagem */
+    left: 65%; /* Ponta do canhão na imagem */
+    
+    height: 6%; /* Grossura do tiro relativa ao boneco */
+}
+
+@keyframes fireBuster {
+    0% { left: 65%; opacity: 1; width: 5%; }
+    10% { width: 10%; } 
+    60% { opacity: 1; }
+    /* O tiro viaja para a direita (200% da largura do boneco) */
+    100% { left: 500%; opacity: 50; } 
+}
+
+
+/* ==========================================================================
+   HUD DESKTOP (Escalável para 4K)
+   ========================================================================== */
+.hud-panel {
+    position: absolute;
+    top: 5vh;
+    right: 5vh;
+    
+    /* Largura, Padding e Borda baseados na largura da tela (vw).
+       Em 4K, tudo dobra de tamanho automaticamente. */
+    width: 22vw;
+    min-width: 300px;
+    
+    background: rgba(0, 10, 40, 0.9);
+    border: 0.2vw solid var(--mmx-blue-neon);
+    padding: 1.5vw;
+    
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+}
+
+.hud-title {
+    font-size: 1.6vw; /* Fonte escala com a tela */
+    margin: 0 0 1vw 0;
+    border-bottom: 0.1vw solid var(--mmx-blue-neon);
+    padding-bottom: 0.5vw;
+    letter-spacing: 1px;
+    color: var(--mmx-blue-neon);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.hud-data {
+    list-style: none; padding: 0; margin: 0;
+    font-size: 1.1vw; /* Fonte escala com a tela */
+    text-shadow: 1px 1px 0 #000;
+}
+.hud-data li { margin-bottom: 0.5vw; font-family: monospace; }
+.status-ok { color: var(--mmx-ok-green); text-shadow: 0 0 5px var(--mmx-ok-green); }
+.charge-level { color: var(--mmx-alert-red); animation: blinkAlert 1s infinite alternate; }
+
+@keyframes blinkAlert {
+    from { opacity: 0.6; }
+    to { opacity: 1; text-shadow: 0 0 8px var(--mmx-alert-red); }
+}
+
+
+/* ==========================================================================
+   MOBILE (Celular em pé)
+   ========================================================================== */
+@media (max-aspect-ratio: 1/1) {
+    
+    /* O Grupo do jogador muda de posição e tamanho */
+    .player-group {
+        height: 15vh; 
+        max-height: none;
+        
+        left: 50%;
+        transform: translateX(-50%); /* Centralizado */
+        
+        bottom: var(--floor-height-mobile); 
+    }
+    
+    /* Pequeno ajuste fino na posição do tiro no mobile se a imagem parecer diferente */
+    .buster-shot {
+        top: 43%; 
+    }
+
+    /* HUD volta a usar pixels fixos para legibilidade no celular */
+    .hud-panel {
+        top: 5vh; 
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90vw; 
+        padding: 15px;
+        border-width: 2px;
+    }
+    
+    .hud-title { 
+        font-size: 1.2rem; 
+        margin-bottom: 15px;
+        border-bottom-width: 1px;
+    } 
+    .hud-data { font-size: 0.9rem; }
+}

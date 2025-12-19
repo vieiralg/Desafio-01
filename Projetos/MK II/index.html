@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortal Kombat II - Select Screen</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="arcade-cabinet">
+  
+  <h1 class="main-title">CHOOSE YOUR FIGHTER</h1>
+
+  <input type="radio" name="char" id="close-modal" checked>
+  
+  <input type="radio" name="char" id="sel-subzero">
+  <input type="radio" name="char" id="sel-scorpion">
+  <input type="radio" name="char" id="sel-liukang">
+  <input type="radio" name="char" id="sel-jax">
+  <input type="radio" name="char" id="sel-reptile">
+  <input type="radio" name="char" id="sel-raiden">
+  <input type="radio" name="char" id="sel-kitana">
+  <input type="radio" name="char" id="sel-cage">
+  <input type="radio" name="char" id="sel-kunglao">
+  <input type="radio" name="char" id="sel-shang">
+  <input type="radio" name="char" id="sel-mileena">
+  <input type="radio" name="char" id="sel-baraka">
+
+  <div class="grid-container">
+    <div class="character-grid">
+      
+      <label for="sel-subzero" class="char-cell" title="Sub-Zero">
+        <img src="sprites/Sub-Zero.png" alt="Sub-Zero">
+      </label>
+      
+      <label for="sel-scorpion" class="char-cell" title="Scorpion">
+        <img src="sprites/Scorpion.png" alt="Scorpion">
+      </label>
+      
+      <label for="sel-liukang" class="char-cell" title="Liu Kang">
+        <img src="sprites/Liu Kang.png" alt="Liu Kang">
+      </label>
+      
+      <label for="sel-jax" class="char-cell" title="Jax">
+        <img src="sprites/Jax.png" alt="Jax">
+      </label>
+      
+      <label for="sel-reptile" class="char-cell" title="Reptile">
+        <img src="sprites/Reptile.png" alt="Reptile">
+      </label>
+      
+      <label for="sel-raiden" class="char-cell" title="Raiden">
+        <img src="sprites/Raiden.png" alt="Raiden">
+      </label>
+      
+      <label for="sel-kitana" class="char-cell" title="Kitana">
+        <img src="sprites/Kitana.png" alt="Kitana">
+      </label>
+      
+      <label for="sel-cage" class="char-cell" title="Johnny Cage">
+        <img src="sprites/Johnny Cage.png" alt="Johnny Cage">
+      </label>
+      
+      <label for="sel-kunglao" class="char-cell" title="Kung Lao">
+        <img src="sprites/Kung Lao.png" alt="Kung Lao">
+      </label>
+      
+      <label for="sel-shang" class="char-cell" title="Shang Tsung">
+        <img src="sprites/Shang Tsung.png" alt="Shang Tsung">
+      </label>
+      
+      <label for="sel-mileena" class="char-cell" title="Mileena">
+        <img src="sprites/Mileena.png" alt="Mileena">
+      </label>
+      
+      <label for="sel-baraka" class="char-cell" title="Baraka">
+        <img src="sprites/Baraka.png" alt="Baraka">
+      </label>
+
+    </div>
+  </div>
+
+  <div class="modal-overlay">
+    <label for="close-modal" class="modal-backdrop"></label>
+    
+    <div class="modal-content">
+      <label for="close-modal" class="close-btn">X</label>
+      
+      <article class="bio-text bio-subzero">
+        <h2>SUB-ZERO</h2>
+        <p>Dado como morto no Torneio Shaolin, Sub-Zero retorna misteriosamente. Acredita-se que ele viajou para o Outworld para tentar assassinar Shang Tsung mais uma vez. Para isso, ele deve abrir caminho lutando através do torneio de Shao Kahn.</p>
+      </article>
+
+      <article class="bio-text bio-scorpion">
+        <h2>SCORPION</h2>
+        <p>O espectro gerado no inferno emerge das profundezas. Ao saber do retorno de Sub-Zero, ele volta a perseguir o ninja assassino — seguindo-o até o reino sombrio de Outworld, onde continua sua própria missão profana.</p>
+      </article>
+
+      <article class="bio-text bio-liukang">
+        <h2>LIU KANG</h2>
+        <p>Após vencer o Torneio Shaolin e escapar das garras de Shang Tsung, Kang retorna aos seus templos. Ele descobre seu lar sagrado em ruínas e seus irmãos Shaolin mortos em uma batalha cruel contra uma horda de guerreiros de Outworld. Agora, ele viaja para o reino sombrio em busca de vingança.</p>
+      </article>
+
+      <article class="bio-text bio-jax">
+        <h2>MAJOR JAX</h2>
+        <p>Seu nome verdadeiro é Maj. Jackson Briggs, líder de uma unidade de elite das Forças Especiais dos EUA. Após receber um sinal de socorro da Tenente Sonya Blade, Jax embarca em uma missão de resgate. Uma missão que o leva a um mundo macabro onde ele acredita que Sonya ainda está viva.</p>
+      </article>
+
+      <article class="bio-text bio-reptile">
+        <h2>REPTILE</h2>
+        <p>Como protetor pessoal de Shang Tsung, o esquivo Reptile espreita nas sombras, detendo todos aqueles que tentam ferir seu mestre. Acredita-se que sua forma humana seja um disfarce para uma horrenda criatura reptiliana, cuja raça pensava-se estar extinta há milhões de anos.</p>
+      </article>
+
+      <article class="bio-text bio-raiden">
+        <h2>RAIDEN</h2>
+        <p>Observando os eventos se desenrolarem lá do alto, o deus do trovão percebe as intenções sombrias de Shao Kahn. Após alertar os membros remanescentes do Torneio Shaolin, Raiden desaparece repentinamente. Acredita-se que ele tenha se aventurado sozinho em Outworld.</p>
+      </article>
+
+      <article class="bio-text bio-kitana">
+        <h2>KITANA</h2>
+        <p>Sua beleza esconde seu verdadeiro papel como assassina pessoal de Shao Kahn. Vista conversando com um guerreiro do reino da Terra, seus motivos tornaram-se suspeitos para sua irmã gêmea, Mileena. Mas apenas Kitana conhece suas verdadeiras intenções.</p>
+      </article>
+
+      <article class="bio-text bio-cage">
+        <h2>JOHNNY CAGE</h2>
+        <p>Após o torneio de Shang Tsung, o astro das artes marciais desaparece. Ele segue Liu Kang até o Outworld. Lá, ele competirá em um torneio sádico que detém o equilíbrio da existência da Terra — além de servir como roteiro para outro filme de sucesso.</p>
+      </article>
+
+      <article class="bio-text bio-kunglao">
+        <h2>KUNG LAO</h2>
+        <p>Ex-monge Shaolin e membro da Sociedade Lótus Branca, ele é o último descendente do Grande Kung Lao, que foi derrotado por Goro há 500 anos. Percebendo o perigo da ameaça de Outworld, ele se une a Liu Kang para entrar na competição de Shao Kahn.</p>
+      </article>
+
+      <article class="bio-text bio-shang">
+        <h2>SHANG TSUNG</h2>
+        <p>Após perder o controle do Torneio Shaolin, Tsung promete ao seu governante, Shao Kahn, moldar eventos que atrairão os guerreiros da Terra para competir em seu próprio torneio. Convencido por este plano, Shao Kahn restaura a juventude de Tsung e permite que ele viva.</p>
+      </article>
+
+      <article class="bio-text bio-mileena">
+        <h2>MILEENA</h2>
+        <p>Atuando como assassina ao lado de sua irmã gêmea Kitana, a aparência deslumbrante de Mileena esconde suas intenções hediondas. A pedido de Shao Kahn, ela é encarregada de vigiar a suspeita de traição de sua gêmea. Ela deve colocar um fim nisso a qualquer custo.</p>
+      </article>
+
+      <article class="bio-text bio-baraka">
+        <h2>BARAKA</h2>
+        <p>Ele liderou o ataque contra o Templo Shaolin de Liu Kang. Baraka pertence a uma raça nômade de mutantes que vivem nas terras devastadas de Outworld. Suas habilidades de luta chamaram a atenção de Shao Kahn, que o recrutou para o seu exército.</p>
+      </article>
+
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
